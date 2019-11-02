@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>easyVue</title>
+  <script src="./src/compiler.js"></script>
+  <script src="./src/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p v-text="msg.val.value"></p>
+    <input type="text" v-model="msg.val.value">
+    <button v-on:click="func">点我啊</button>
+  </div>
+
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: {
+          val: {
+            value: 111
+          }
+        }
+      },
+      methods: {
+        func() {
+          console.log(111)
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>
