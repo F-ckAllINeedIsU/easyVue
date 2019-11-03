@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>easyVue</title>
+  <script src="./src/watcher.js"></script>
+  <script src="./src/observer.js"></script>
   <script src="./src/compiler.js"></script>
   <script src="./src/vue.js"></script>
 </head>
@@ -13,6 +15,8 @@
 <body>
   <div id="app">
     <p v-text="msg.val.value"></p>
+    <p v-html="title"></p>
+    <p>{{title}}</p>
     <input type="text" v-model="msg.val.value">
     <button v-on:click="func">点我啊</button>
   </div>
@@ -21,6 +25,7 @@
     let vm = new Vue({
       el: '#app',
       data: {
+        title: '<h1>标题</h1>',
         msg: {
           val: {
             value: 111
@@ -29,7 +34,7 @@
       },
       methods: {
         func() {
-          console.log(111)
+          console.log(this.msg.val.value)
         }
       },
     })
